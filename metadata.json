@@ -1,0 +1,6 @@
+{
+  "name": "نظام الدفع الآمن",
+  "description": "منصة متكاملة للدفع الإلكتروني في دول الخليج تدعم الشحن والفواتير والعقود والخدمات الحكومية والصحية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
