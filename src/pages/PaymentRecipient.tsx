@@ -65,7 +65,7 @@ const PaymentRecipient = () => {
   // أولوية للـ query parameters، ثم linkData، ثم defaults
   const shippingInfo = linkData?.payload as Record<string, unknown>;
   const payerType = payerTypeParam || shippingInfo?.payer_type || "recipient";
-  const countryCode = countryParam || shippingInfo?.selectedCountry || "SA";
+  const countryCode = countryParam || (shippingInfo?.selectedCountry as string) || "SA";
   const countryData = getCountryByCode(countryCode);
   const phoneCode = countryData?.phoneCode || "+966";
   const currencyCode = currencyParam || countryData?.currency || "SAR";

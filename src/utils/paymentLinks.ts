@@ -42,12 +42,12 @@ export function generatePaymentLink({
   // Format: /p/{id}/{company}/{currency}/{amount}
   if (amount && finalCurrency) {
     // Add payment method as query parameter to preserve it across devices
-    return `${productionDomain}/p/${invoiceId}/${encodeURIComponent(company)}/${encodeURIComponent(finalCurrency)}/${amount}?pm=${paymentMethod || 'card'}`;
+    return `${productionDomain}/p/${invoiceId}/${encodeURIComponent(company)}/${encodeURIComponent(finalCurrency)}/${amount}?pm=${paymentMethod || 'card'}&country=${encodeURIComponent(country)}`;
   }
 
   // Fallback to query parameters
   const methodParam = paymentMethod ? `&method=${paymentMethod}` : '';
-  return `${productionDomain}/pay/${invoiceId}/recipient?company=${encodeURIComponent(company)}&currency=${encodeURIComponent(finalCurrency)}&title=${title}${methodParam}`;
+  return `${productionDomain}/pay/${invoiceId}/recipient?company=${encodeURIComponent(company)}&currency=${encodeURIComponent(finalCurrency)}&title=${title}${methodParam}&country=${encodeURIComponent(country)}`;
 }
 
 /**
